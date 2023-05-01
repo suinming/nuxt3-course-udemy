@@ -41,7 +41,7 @@ const { data: city, error } = useAsyncData(
         background.value =
           "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3546&q=80";
       }
-    } catch (e) {}
+    } catch (e) { }
 
     return response;
   },
@@ -50,9 +50,7 @@ const { data: city, error } = useAsyncData(
   }
 );
 
-let today = new Date();
-
-today = today.toLocaleDateString("en-US", {
+let today = new Date().toLocaleDateString("en-US", {
   weekday: "long",
   year: "numeric",
   month: "long",
@@ -79,10 +77,7 @@ const goBack = () => {
         <div>
           <h1 class="text-7xl text-white">{{ city.name }}</h1>
           <p class="font-extralight text-2xl mt-2 text-white">{{ today }}</p>
-          <img
-            :src="`https://openweathermap.org/img/wn/${city.weather[0].icon}@4x.png`"
-            class="w-56 icon"
-          />
+          <img :src="`https://openweathermap.org/img/wn/${city.weather[0].icon}@4x.png`" class="w-56 icon" />
         </div>
         <div>
           <p class="text-9xl text-white font-extralight">
@@ -91,12 +86,7 @@ const goBack = () => {
         </div>
       </div>
       <div class="mt-20">
-        <input
-          type="text"
-          class="w-1/2 h-10"
-          placeholder="Search a city..."
-          v-model="input"
-        />
+        <input type="text" class="w-1/2 h-10" placeholder="Search a city..." v-model="input" />
         <button class="bg-sky-400 w-20 text-white h-10" @click="handleClick">
           Search
         </button>

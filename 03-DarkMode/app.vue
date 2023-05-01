@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const { isDarkMode } = useDarkMode();
-
-const lala;
 </script>
 
 <template>
-  <div :style="isDarkMode ? { backgroundColor: 'black' } : null">
+  <div :style="isDarkMode ? { backgroundColor: 'black' } : ''">
     <Nav />
     <Heading />
     <Cards />
